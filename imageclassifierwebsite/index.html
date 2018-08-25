@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PLEASE UPLOAD YOUR IMAGE</title>
+
+	<style type>
+	#maintable
+	{
+		color:green;
+		width:100%;
+		background-color:;
+	}
+
+	#requsetheader
+	{
+		text-align:center;
+		width:100%;
+		height:34%;
+	}
+
+	#bodymain
+	{
+		
+	}
+
+	#inputtable
+	{
+		
+		width:16%;
+	}
+	#caption
+	{
+		
+		color:black;
+		font-size: 32px;
+	}
+
+	
+
+	#image
+	{
+		max-height:123px;
+		max-width: 123px;
+	}
+	/*
+	useer submit button actions and styling */
+	#usubmit
+	{
+		border:5px solid grey;
+		height:43px;
+	}
+</style>
+</head>
+
+<!--setting background image  -->
+<body id="bodymain" background="/source/image/catdog.png">
+<!-- creating table  to insert data inside for clients -->
+<table   id="maintable" style="border:2px solid grey; ">
+	<tr>
+		<td>
+			<!--wel-come message -->
+			<h1 id="requsetheader">PLEASE UPLOAD YOUR PHOTO FOR IMAGE CLASSIFICATION</h1>
+		</td>
+	</tr>
+	</table>
+
+
+	<!--form table -->
+	<form method="post" action="D:\imageclassifierwebsite\test.html">
+	<table id ="inputtable" align="center"  border="2px solid  grey">
+		<caption  id="caption" style="align-content: center">Upload Valid Photo With  Your Name</caption>
+		<tr>
+			<td rowspan="5">
+				<div id="imguploader">
+				<!--https://www.youtube.com/watch?v=V3IQuJsYb6k-->
+				<!--initially hides the img tag-->
+				<!-- passing this object explicitly-->
+				<img   src="" style="display:none" height:"200" id="image">
+				<input type="file" id="photoupload"  onchange="showImage.call(this)">
+
+				<script>
+					function showImage()
+					{
+						if(this.files&&this.files[0])
+						{
+							var obj=new FileReader();
+							obj.onload=function(data)
+							{
+								var image=document.getElementById("image");
+								image.src=data.target.result;
+								image.style.display="block";
+								/*
+								resizing the input from the user upload
+								*/
+							}
+							obj.readAsDataURL(this.files[0]);
+						}
+					}
+				</script>
+			</div>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">
+				<!--taking altrer from the user for specific image -->
+				<input type="text" id="uer_alter" name="useralter"  required placeholder="Enter Caption">
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">
+				<input type="submit" id="usubmit" name="submit" >
+			</td>
+		</tr>
+		<tr>
+			
+		</tr>
+		<tr>
+			<td>
+				<!-- taking input as roll number from the user -->
+				<input type="text"  placeholder="Roll_number" required>
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>
